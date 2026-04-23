@@ -138,6 +138,46 @@ int main()
         case '1':
             mhs.addNode();
             break;
+
+        case '2':
+            if (mhs.ListEmpty())
+            {
+                cout << "\nList Kosong\n" << endl;
+                break;
+            }
+            cout << "\nMasukkan nomor mahasiswa yang akan dihapus : ";
+            cin >> nim;
+
+            if (mhs.delNode(nim) == false)
+                cout << "\nData tidak ditemukan\n" << endl;
+            else
+                cout << "\nData dengan nomor mahasiswa " << nim << " berhasil dihapus\n";
+            break;
+
+        case '3':
+            mhs.traverse();
+            break;
+
+        case '4':
+        {
+            if (mhs.ListEmpty())
+            {
+                cout << "\nList Kosong\n";
+                break;
+            }
+
+            Node *previous, *current;
+            cout << "\nMasukkan nomor mahasiswa yang dicari : ";
+            cin >> nim;
+
+            if (mhs.search(nim, previous, current) == false)
+                cout << "\nData tidak ditemukan\n";
+            else
+            {
+                cout << "\nData ditemukan\n";
+                cout << "NIM Mahasiswa: " << current->noMhs << endl;
+            }
+        }
         }
     }
 };
